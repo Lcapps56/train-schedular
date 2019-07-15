@@ -1,8 +1,7 @@
 trains = []
 console.log("working")
 function chart() {
-    $("#main-table").empty()
-
+    $("#main-table").html("<tr><th>train name</th><th>Destiantion</th><th>Frequency(min)</th><th>Next arrival</th><th>Minutes away</th></tr>")
     for (var i = 0; i < trains.length; i++) {
         //make a new row
         var newRow = $("<tr id=new-row>")
