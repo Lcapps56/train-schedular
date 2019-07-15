@@ -1,0 +1,50 @@
+header {
+    background: darkgray;
+    text-align: center;
+    padding: 10px;
+    color: white;
+}
+
+
+/* middle prt styling */
+
+#current-schedules{
+    border: blue solid 2px;
+    margin: 20px;
+    
+}
+#current-schedules p {
+    background: blue;
+    margin: 0px;
+    color: white;
+}
+table tr th {
+    padding: 10px;
+    border: black solid 1px;
+
+}
+table {
+    margin-left: 100px;
+}
+
+/* new trains styling */
+#new-row td {
+    border: solid red 1px;
+    padding: 10px;
+}
+
+/* bottom part */
+#add-trains-form {
+    border: blue solid 2px;
+    margin: 20px;
+}
+#add-trains-form p {
+    background: blue;
+    margin: 0px;
+    color: white;
+} 
+
+#section {
+    padding: 15px;
+}
+

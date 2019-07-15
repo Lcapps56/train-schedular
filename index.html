@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/style.css">
+    
+  
+
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Anytime is train time</h1>
+        <p>choo choo in this bitch</p>
+    </header>
+
+    <div id="current-schedules">
+        <p>Current Schedule</p>
+        <table>
+            <tr>
+                <th>train name</th>
+                <th>Destiantion</th>
+                <th>Frequency(min)</th>
+                <th>Next arrival</th>
+                <th>Minutes away</th>
+            </tr>
+        </table>
+        <table id="main-table">
+            
+        </table>
+    </div>
+
+    <div id="add-trains-form">
+        <p>add a train</p>
+        <form>
+            <div id="section">
+                <label for="add-a-train">Train name</label>
+                <input type="text" id="add-name">
+            </div>
+            <div id="section">
+                <label for="add-a-destination">Destination</label>
+                <input type="text" id="add-destination">
+            </div>
+            <div id="section">
+                <label for="add-train-time">First Train time</label>
+                <input type="text" id="first-time">
+            </div>
+            <div id="section">
+                <label for="add-train-frequency">How often</label>
+                <input type="text" id="train-frequency">
+            </div>
+            <div id="section">
+                <button type="submit" id="submitButton" value="name">submit
+            </div>
+        </form>
+    </div>
+    
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+      <script src="assets/logic.js"></script>
+</body>
+</html>
