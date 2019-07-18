@@ -6,20 +6,15 @@ function chart() {
         //make a new row
         var newRow = $("<tr id=new-row>")
 
-        // make the new table items for the info
-        var newName = $("<td>")
-        var newDestination = $("<td>")
-        var newTime = $("<td>")
-        var newFrequency = $("<td>")
-
-        //put info in the text for the each new box
-        newName.text(trains[i].name)
-        newDestination.text(trains[i].destination)
-        newTime.text(trains[i].first)
-        newFrequency.text(trains[i].frequency)
+        // make the new table items for the info & put info in the text for the each new box
+        var newName = $("<td>").text(trains[i].name)
+        var newDestination = $("<td>").text(trains[i].destination)
+        var newFrequency = $("<td>").text(trains[i].frequency)
+        var newTime = $("<td>").text((trains[i].first)+trains[i].frequency)
+        var newArrivalTime = $("<td>").text(trains[i].tMinutesTillTrain)
 
         //put the name onto the new row
-        newRow.append(newName, newDestination, newTime, newFrequency)
+        newRow.append(newName, newDestination, newFrequency,  newTime, newArrivalTime)
 
         // put the new row into the table
         $("#main-table").append(newRow)
@@ -34,16 +29,35 @@ $("#submitButton").on("click", function (event) {
     var firstTime = $("#first-time").val()
     var trainFrequency = $("#train-frequency").val()
 
-    //eliminate user error
-    // if ($("#add-name").val() === '' || $("#add-destination").val() === '' || $("#first-time").val() || $("#train-frequency").val() === '') {
-    //     alert("please fill out all forms")
-    // }
+    var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+
+    // Current Time
+    var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+    // Difference between the times
+    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+    console.log("DIFFERENCE IN TIME: " + diffTime);
+
+    // Time apart (remainder)
+    var tRemainder = diffTime % trainFrequency;
+    console.log(tRemainder);
+
+    // Minute Until Train
+    var tMinutesTillTrain = trainFrequency - tRemainder;
+    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
+    // Next Train
+    // var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+    // console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"))
 
     var train = {
         name: trainName,
         destination: trainDestination,
         first: firstTime,
-        frequency: trainFrequency
+        frequency: trainFrequency,
+        tMinutesTillTrain: tMinutesTillTrain
+
     }
     console.log(train)
 
@@ -58,4 +72,3 @@ $("#submitButton").on("click", function (event) {
 
     chart()
 })
-
